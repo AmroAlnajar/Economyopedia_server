@@ -4,14 +4,14 @@ namespace economyopedia_server.Models
 {
     public class TaxCalculatorResponse
     {
-        [JsonProperty("Gross monthly")]
+        [JsonProperty("GrossMonthly")]
         public double GrossMonthly { get; set; }
 
-        [JsonProperty("Net Monthly")]
+        [JsonProperty("NetMonthly")]
         public double NetMonthly { get; set; }
 
-        [JsonProperty("Tax payed")]
-        public double TaxPayed { get; set; }
+        [JsonProperty("TaxPaid")]
+        public double TaxPaid { get; set; }
 
     }
 }

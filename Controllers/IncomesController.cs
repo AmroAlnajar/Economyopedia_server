@@ -10,10 +10,13 @@ namespace economyopedia_server.Controllers
     {
         private readonly EconomyopediaDbContext _context;
         private readonly HttpClient _httpClient = new HttpClient();
+        private readonly ILogger _logger;
 
-        public IncomesController(EconomyopediaDbContext context) : base(context)
+        public IncomesController(EconomyopediaDbContext context, ILogger<IncomesController> logger) : base(context)
         {
             _context = context;
+            _logger = logger;
+             
         }
 
 
@@ -34,12 +37,20 @@ namespace economyopedia_server.Controllers
                 var response = await _httpClient
                     .GetAsync($"https://taxbase.herokuapp.com/GetTaxByTable?yearlySalary={taxableYearly.Amount}&taxTable={tableNumber}");
 
+                if(!response.IsSuccessStatusCode)
+                {
+                    _logger.LogError("Fetching from taxbase failed.");
+                } else
+                {
+                    _logger.LogInformation("Fetch from taxbase succeeded.");
+                }
+
                 var data = await response.Content.ReadAsStringAsync();
 
                 var taxableSalaryInformation = JsonConvert.DeserializeObject<TaxCalculatorResponse>(data);
 
                 grossMonthly = taxableSalaryInformation.GrossMonthly;
-                taxPaid = taxableSalaryInformation.TaxPayed;
+                taxPaid = taxableSalaryInformation.TaxPaid;
                 netMonthly = taxableSalaryInformation.NetMonthly;
 
             }
