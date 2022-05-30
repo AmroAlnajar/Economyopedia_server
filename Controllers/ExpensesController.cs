@@ -1,0 +1,29 @@
+﻿using economyopedia_server.Data;
+using economyopedia_server.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace economyopedia_server.Controllers
+{
+    
+
+    public class ExpensesController : BaseController<Expense>
+    {
+        private readonly EconomyopediaDbContext _context;
+
+        public ExpensesController(EconomyopediaDbContext context) : base(context)
+        {
+            _context = context;
+        }
+
+        [HttpGet]
+        public TotalExpensesResponse GetTotalExpenses()
+        {
+            return new TotalExpensesResponse()
+            {
+                TotalExpenses = _context.Expenses.Select(x => x.Amount).Sum()
+
+            };
+        }
+    }
+}
