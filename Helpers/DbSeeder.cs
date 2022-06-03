@@ -18,7 +18,6 @@ namespace economyopedia_server.Helpers
                 new Expense(){Amount = 479 ,Title = "Hala sin mobil"},
                 new Expense(){Amount = 10 ,Title = "apple cloud"},
                 new Expense(){Amount = 60 ,Title = "Youtube music"},
-                new Expense(){Amount = 129 ,Title = "Netflix"},
                 new Expense(){Amount = 3860 ,Title = "Bil lån"},
                 new Expense(){Amount = 2500 ,Title = "Lånekasse"},
                 new Expense(){Amount = 833 ,Title = "NAV"},
