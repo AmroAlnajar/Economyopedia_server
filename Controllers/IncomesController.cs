@@ -68,7 +68,8 @@ namespace economyopedia_server.Controllers
             {
                 NetMonthly = netMonthly + totalExtraIncome,
                 MonthlyIncome = grossMonthly + totalExtraIncome,
-                TaxPayed = taxPaid
+                TaxPaid = taxPaid,
+                GrossMonthly = grossMonthly,
             };
         }
     }
