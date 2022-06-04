@@ -22,8 +22,13 @@ namespace economyopedia_server.Controllers
             return new TotalExpensesResponse()
             {
                 TotalExpenses = _context.Expenses.Select(x => x.Amount).Sum()
-
             };
+        }
+
+        [HttpGet]
+        public override List<Expense> GetAll()
+        {
+            return _context.Expenses.OrderByDescending(x => x.Amount).ToList();
         }
     }
 }
