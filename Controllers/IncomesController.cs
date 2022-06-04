@@ -16,7 +16,7 @@ namespace economyopedia_server.Controllers
         {
             _context = context;
             _logger = logger;
-             
+
         }
 
 
@@ -37,10 +37,11 @@ namespace economyopedia_server.Controllers
                 var response = await _httpClient
                     .GetAsync($"https://taxbase.herokuapp.com/GetTaxByTable?yearlySalary={taxableYearly.Amount}&taxTable={tableNumber}");
 
-                if(!response.IsSuccessStatusCode)
+                if (!response.IsSuccessStatusCode)
                 {
                     _logger.LogError("Fetching from taxbase failed.");
-                } else
+                }
+                else
                 {
                     _logger.LogInformation("Fetch from taxbase succeeded.");
                 }
@@ -63,6 +64,8 @@ namespace economyopedia_server.Controllers
 
             }
 
+            var netMonthlyForNovember = grossMonthly - (taxPaid / 2);
+
 
             return new IncomeDataResponse()
             {
@@ -70,6 +73,7 @@ namespace economyopedia_server.Controllers
                 MonthlyIncome = grossMonthly + totalExtraIncome,
                 TaxPaid = taxPaid,
                 GrossMonthly = grossMonthly,
+                NetMonthlyForNovember = netMonthlyForNovember
             };
         }
 

@@ -6,5 +6,6 @@
         public double TaxPaid { get; set; }
         public double MonthlyIncome { get; set; }
         public double GrossMonthly { get; set; }
+        public double NetMonthlyForNovember { get; set; }
     }
 }
