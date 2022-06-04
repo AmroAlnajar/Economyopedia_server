@@ -72,6 +72,19 @@ namespace economyopedia_server.Controllers
                 GrossMonthly = grossMonthly,
             };
         }
+
+        [HttpGet]
+        public double GetVacationMoney()
+        {
+            var yearlySalary = _context.Incomes.FirstOrDefault(x => x.IncomeType == Common.IncomeTypeEnum.TaxableYearly).Amount;
+            var monthlySalary = yearlySalary / 12;
+            var holidayPayBasis = yearlySalary - monthlySalary;
+            var vacationMoneyPercent = 0.12;
+
+            var vacationMoney = monthlySalary + (holidayPayBasis * vacationMoneyPercent) - (monthlySalary / 26) * 30;
+
+            return Math.Round(vacationMoney, 0);
+        }
     }
 }
 
