@@ -29,6 +29,7 @@ namespace economyopedia_server.Controllers
             double taxPaid = 0;
             double totalExtraIncome = 0;
             double netMonthly = 0;
+            double grossYearly = 0;
 
             var taxableYearly = _context.Incomes.FirstOrDefault(x => x.IncomeType == Common.IncomeTypeEnum.TaxableYearly);
 
@@ -54,6 +55,7 @@ namespace economyopedia_server.Controllers
                 grossMonthly = taxableSalaryInformation.GrossMonthly;
                 taxPaid = taxableSalaryInformation.TaxPaid;
                 netMonthly = taxableSalaryInformation.NetMonthly;
+                grossYearly = taxableYearly.Amount;
 
             }
 
@@ -66,7 +68,7 @@ namespace economyopedia_server.Controllers
             }
 
             var netMonthlyForNovember = grossMonthly - (taxPaid / 2);
-            var vacationMoney = ExternalData.GetVacationMoney(grossMonthly);
+            var vacationMoney = ExternalData.GetVacationMoney(grossYearly);
 
 
             return new IncomeDataResponse()
