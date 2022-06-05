@@ -1,5 +1,6 @@
 ﻿using economyopedia_server.Data;
 using economyopedia_server.Enums;
+using economyopedia_server.Helpers;
 using economyopedia_server.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -65,6 +66,7 @@ namespace economyopedia_server.Controllers
             }
 
             var netMonthlyForNovember = grossMonthly - (taxPaid / 2);
+            var vacationMoney = ExternalData.GetVacationMoney(grossMonthly);
 
 
             return new IncomeDataResponse()
@@ -73,21 +75,9 @@ namespace economyopedia_server.Controllers
                 MonthlyIncome = grossMonthly + totalExtraIncome,
                 TaxPaid = taxPaid,
                 GrossMonthly = grossMonthly,
-                NetMonthlyForNovember = netMonthlyForNovember
+                NetMonthlyForNovember = netMonthlyForNovember,
+                VacationMoney = vacationMoney
             };
-        }
-
-        [HttpGet]
-        public double GetVacationMoney()
-        {
-            var yearlySalary = _context.Incomes.FirstOrDefault(x => x.IncomeType == Common.IncomeTypeEnum.TaxableYearly).Amount;
-            var monthlySalary = yearlySalary / 12;
-            var holidayPayBasis = yearlySalary - monthlySalary;
-            var vacationMoneyPercent = 0.12;
-
-            var vacationMoney = monthlySalary + (holidayPayBasis * vacationMoneyPercent) - (monthlySalary / 26) * 30;
-
-            return Math.Round(vacationMoney, 0);
         }
     }
 }

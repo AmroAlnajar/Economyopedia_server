@@ -7,5 +7,6 @@
         public double MonthlyIncome { get; set; }
         public double GrossMonthly { get; set; }
         public double NetMonthlyForNovember { get; set; }
+        public double VacationMoney { get; set; }
     }
 }
