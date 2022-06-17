@@ -29,7 +29,6 @@ namespace economyopedia_server.Controllers
         public override List<Expense> GetAll()
         {
             return _context.Expenses
-                .Where(x => x.IncludeInCalculation == true)
                 .OrderByDescending(x => x.Amount)
                 .ToList();
         }
