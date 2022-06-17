@@ -11,18 +11,18 @@ namespace economyopedia_server.Helpers
             _context.Database.EnsureCreated();
 
             var expensesList = new List<Expense>() {
-                new Expense(){Amount = 7500 ,Title = "Husleie", IncludeInCalculation = true},
-                new Expense(){Amount = 2000 ,Title = "Strøm", IncludeInCalculation = true},
-                new Expense(){Amount = 590 ,Title = "Bil forsikring", IncludeInCalculation = true},
-                new Expense(){Amount = 589 ,Title = "Amro sin mobil", IncludeInCalculation = true},
-                new Expense(){Amount = 479 ,Title = "Hala sin mobil", IncludeInCalculation = true},
-                new Expense(){Amount = 10 ,Title = "apple cloud", IncludeInCalculation = true},
-                new Expense(){Amount = 60 ,Title = "Youtube music", IncludeInCalculation = true},
-                new Expense(){Amount = 3860 ,Title = "Bil lån", IncludeInCalculation = true},
-                new Expense(){Amount = 2500 ,Title = "Lånekasse", IncludeInCalculation = true},
-                new Expense(){Amount = 833 ,Title = "NAV", IncludeInCalculation = true},
-                new Expense(){Amount = 1755 ,Title = "NAV 2", IncludeInCalculation = true},
-                new Expense(){Amount = 3000 ,Title = "Mat og drikke", IncludeInCalculation = true}
+                new Expense(){Amount = 7500 ,Title = "Husleie"},
+                new Expense(){Amount = 2000 ,Title = "Strøm"},
+                new Expense(){Amount = 590 ,Title = "Bil forsikring"},
+                new Expense(){Amount = 589 ,Title = "Amro sin mobil"},
+                new Expense(){Amount = 479 ,Title = "Hala sin mobil"},
+                new Expense(){Amount = 10 ,Title = "apple cloud"},
+                new Expense(){Amount = 60 ,Title = "Youtube music"},
+                new Expense(){Amount = 3860 ,Title = "Bil lån"},
+                new Expense(){Amount = 2500 ,Title = "Lånekasse"},
+                new Expense(){Amount = 833 ,Title = "NAV"},
+                new Expense(){Amount = 1755 ,Title = "NAV 2"},
+                new Expense(){Amount = 3000 ,Title = "Mat og drikke"}
             };
 
             var incomesList = new List<Income>()

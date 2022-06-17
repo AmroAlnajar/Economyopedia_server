@@ -35,6 +35,6 @@ namespace economyopedia_server.Models
 
             }
         }
-        public bool IncludeInCalculation { get; set; }
+        public bool IncludeInCalculation { get; set; } = true;
     }
 }
