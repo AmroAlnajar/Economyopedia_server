@@ -45,6 +45,7 @@ namespace economyopedia_server.Controllers
             expense.IncludeInCalculation = status;
 
             _context.Expenses.Update(expense);
+            _context.SaveChanges();
 
             return Ok();
         }
