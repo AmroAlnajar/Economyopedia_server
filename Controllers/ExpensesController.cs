@@ -35,7 +35,7 @@ namespace economyopedia_server.Controllers
         }
 
         [HttpPost]
-        public IActionResult SetExcludeFromCalculation(int id, bool status)
+        public IActionResult SetIncludeInCalculation(int id, bool status)
         {
             var expense = _context.Expenses.FirstOrDefault(x => x.Id == id);
 
