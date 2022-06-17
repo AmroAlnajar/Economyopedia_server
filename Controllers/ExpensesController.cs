@@ -33,5 +33,20 @@ namespace economyopedia_server.Controllers
                 .OrderByDescending(x => x.Amount)
                 .ToList();
         }
+
+        [HttpPost]
+        public IActionResult SetExcludeFromCalculation(int id, bool status)
+        {
+            var expense = _context.Expenses.FirstOrDefault(x => x.Id == id);
+
+            if (expense == null)
+                return BadRequest();
+
+            expense.IncludeInCalculation = status;
+
+            _context.Expenses.Update(expense);
+
+            return Ok();
+        }
     }
 }
