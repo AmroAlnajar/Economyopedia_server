@@ -48,5 +48,11 @@ namespace economyopedia_server.Controllers
 
             return Ok();
         }
+
+        [HttpGet]
+        public double GetTotalExcluded()
+        {
+            return _context.Expenses.Where(x => x.IncludeInCalculation == false).Select(x => x.Amount).Sum();
+        }
     }
 }
