@@ -19,7 +19,7 @@ namespace economyopedia_server.Helpers
                 new Expense(){Amount = 10 ,Title = "apple cloud"},
                 new Expense(){Amount = 60 ,Title = "Youtube music"},
                 new Expense(){Amount = 3860 ,Title = "Bil lån"},
-                new Expense(){Amount = 2500 ,Title = "Lånekasse"},
+                new Expense(){Amount = 2857 ,Title = "Lånekasse"},
                 new Expense(){Amount = 833 ,Title = "NAV"},
                 new Expense(){Amount = 1755 ,Title = "NAV 2"},
                 new Expense(){Amount = 3000 ,Title = "Mat og drikke"}
@@ -27,7 +27,7 @@ namespace economyopedia_server.Helpers
 
             var incomesList = new List<Income>()
             {
-                new Income() {Title = "Yearly salary", IncomeType = Common.IncomeTypeEnum.TaxableYearly, Amount = 550000},
+                new Income() {Title = "Yearly salary", IncomeType = Common.IncomeTypeEnum.TaxableYearly, Amount = 583275},
                 new Income() {Title= "Extra income", IncomeType = Common.IncomeTypeEnum.NonTaxableMonthly, Amount = 0}
             };
 
