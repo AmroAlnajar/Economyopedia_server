@@ -27,7 +27,7 @@ namespace economyopedia_server.Helpers
 
             var incomesList = new List<Income>()
             {
-                new Income() {Title = "Yearly salary", IncomeType = Common.IncomeTypeEnum.TaxableYearly, Amount = 583275},
+                new Income() {Title = "Yearly salary", IncomeType = Common.IncomeTypeEnum.TaxableYearly, Amount = 570156},
                 new Income() {Title= "Extra income", IncomeType = Common.IncomeTypeEnum.NonTaxableMonthly, Amount = 0}
             };
 
