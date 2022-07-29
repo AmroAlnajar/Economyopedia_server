@@ -1,12 +1,10 @@
 ﻿using economyopedia_server.Data;
+using economyopedia_server.Helpers;
 using economyopedia_server.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace economyopedia_server.Controllers
 {
-    
-
     public class ExpensesController : BaseController<Expense>
     {
         private readonly EconomyopediaDbContext _context;
@@ -53,6 +51,12 @@ namespace economyopedia_server.Controllers
         public double GetTotalExcluded()
         {
             return _context.Expenses.Where(x => x.IncludeInCalculation == false).Select(x => x.Amount).Sum();
+        }
+
+        [HttpGet]
+        public void ResetToDefault()
+        {
+            DbSeeder.Seed(_context);
         }
     }
 }
